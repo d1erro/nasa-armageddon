@@ -1,0 +1,97 @@
+.asteroidItem {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+.asteroidInfo {
+    display: grid;
+    grid-template-columns: 3fr 1fr 2fr;
+    justify-items: center;
+    align-items: center;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.buttonAndDangerInfo {
+    display: flex;
+    align-items: center;
+}
+
+.orderButton {
+    color: #F86600;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-right: 15px;
+    background: rgba(248, 102, 0, 0.15);
+    border-radius: 16px;
+    padding: 5px;
+    border: none;
+}
+
+.orderButton:hover {
+    cursor: pointer;
+}
+
+.inCartButton {
+    color: #F5DED9;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-right: 15px;
+    background: rgba(248, 102, 0, 0.15);
+    border-radius: 16px;
+    padding: 5px;
+    border: none;
+}
+
+.warningContainer {
+    display: flex;
+    align-items: center;
+}
+
+.warningIcon {
+    margin-right: 5px;
+    color: #ffcc00;
+}
+
+.warningText {
+    font-size: 12px;
+}
+
+.date {
+   font-size: 20px;
+}
+
+.distance {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 14px;
+}
+
+.image {
+    margin-inline: 5px;
+    width: 22px;
+    height: 24px;
+}
+
+.nameAndRadius {
+    display: flex;
+    flex-direction: column;
+}
+
+.name {
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.radius {
+    font-size: 12px;
+}

@@ -1,0 +1,93 @@
+.asteroidList {
+}
+
+.kmOrLunarOrbits {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.unitButton {
+    color: white;
+    background: black;
+    border: none;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.selectedUnitButton {
+    color: white;
+    background: black;
+    border: none;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.dash {
+    margin-inline: 5px;
+    font-size: 8px;
+}
+
+.cart {
+    position: fixed;
+    background: aqua;
+    bottom: 0;
+    width: 100%;
+    left: 0%;
+    background: #232526;
+    z-index: 1;
+}
+
+.cartItems {
+    display: flex;
+    justify-content: space-between;
+    margin: 16px;
+}
+
+.cartWordCart {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.cartButton {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-weight: 700;
+    border: none;
+    border-radius: 40px;
+    background: #F86600;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+.cartButton:hover {
+    background: #d04c01;
+}
+
+.loader {
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    border-left: 4px solid #fff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin-inline: auto;
+    margin-bottom: 30px;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.loaderWithCart {
+    margin-bottom: 100px;
+    z-index: -1;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

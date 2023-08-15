@@ -1,0 +1,17 @@
+.header {
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+.headerLink {
+    color: white;
+    text-decoration: none;
+}
+
+.headerTitle {
+    color: #F86600;
+}
+
+.headerDescription {
+    font-size: smaller;
+}

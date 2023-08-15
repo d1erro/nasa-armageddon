@@ -1,0 +1,14 @@
+.mainContainer {
+    margin-top: 20px;
+    margin-right: 5%;
+    margin-left: 20%;
+}
+
+.backgroundEarth {
+    position: fixed;
+    background-image: url('../../public/earth.jpeg');
+    background-size: cover;
+    background-position: right center;
+    width: 15%;
+    height: 100%;
+}

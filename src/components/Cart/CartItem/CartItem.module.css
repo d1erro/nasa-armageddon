@@ -1,0 +1,53 @@
+.asteroidItem {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+.asteroidInfo {
+    display: grid;
+    grid-template-columns: 3fr 1fr 2fr;
+    justify-items: center;
+    align-items: center;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.date {
+    font-size: 20px;
+}
+
+.distance {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 14px;
+}
+
+.image {
+    margin-inline: 5px;
+    width: 22px;
+    height: 24px;
+}
+
+.radius {
+    font-size: 12px;
+}
+
+.warningContainer {
+    display: flex;
+    align-items: center;
+}
+
+.warningIcon {
+    margin-right: 5px;
+    color: #ffcc00;
+}
+
+.warningText {
+    font-size: 12px;
+}
