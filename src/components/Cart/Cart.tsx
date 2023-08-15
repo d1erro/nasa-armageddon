@@ -3,23 +3,24 @@
 import {useEffect} from "react";
 import CartItem from "@/components/Cart/CartItem/CartItem";
 import styles from './Cart.module.css'
+import {type} from "os";
 
 const Cart = () => {
 
-    let cart = null;
+    let cart: ICartItem[] = [];
 
-    const cartJSON = localStorage.getItem('cart');
-    if (cartJSON) {
-        cart = JSON.parse(cartJSON);
+    if (typeof window !== 'undefined' && window.localStorage) {
+        const cartJSON = localStorage.getItem('cart');
+        cart = JSON.parse(cartJSON || '[]');
     }
 
     useEffect(() => {
         localStorage.removeItem('cart');
-    }, []);
+    }), [];
 
     return (
         <div>
-            {cart ? (
+            {cart.length > 0 ? (
                 <>
                     <h4>Заказ отправлен!</h4>
                     {cart.map((asteroid: ICartItem) => (

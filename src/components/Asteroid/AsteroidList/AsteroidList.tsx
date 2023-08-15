@@ -19,14 +19,18 @@ const AsteroidList: FC = () => {
     const [distanceUnit, setDistanceUnit] = useState<"lunar" | "km">("lunar")
     const loader = useRef<HTMLDivElement | null>(null);
 
-    useObserver(loader, isLoading, () => setFetchDate(getNextDay(fetchDate)))
+    useObserver({
+        ref: loader,
+        isLoading,
+        callback: () => setFetchDate(getNextDay(fetchDate))
+    })
 
     useEffect(() => {
         (async () => {
             setIsLoading(true)
             try {
                 const receivedAsteroids = await getNasaData(fetchDate)
-                setAsteroids([...asteroids, ...receivedAsteroids]);
+                setAsteroids((asteroids) => [...asteroids, ...receivedAsteroids]);
             } catch (err) {
                 console.log(err)
             } finally {
@@ -36,9 +40,7 @@ const AsteroidList: FC = () => {
     }, [fetchDate]);
 
     useEffect(() => {
-        if (cart.length > 0) {
-            localStorage.setItem('cart', JSON.stringify(cart))
-        }
+        localStorage.setItem('cart', JSON.stringify(cart))
     }, [cart]);
 
     const cartUpdateHandler: ICartUpdateHandler = (

@@ -1,6 +1,6 @@
 export const getNasaData = async (fetchDate: string) => {
-        const response = await fetch('https://api.nasa.gov/neo/rest/v1/feed?start_date=' +
-        {fetchDate} + '&end_date=' + fetchDate + '&api_key=' + process.env.NASA_API)
+        const response = await fetch(`https://api.nasa.gov/neo/rest/v1/feed?start_date=${fetchDate}&end_date=
+        ${fetchDate}&api_key=hvcT9WhJJSN4PwMpApM6cIjt9u6TxC7I0sa1iBWG`);
 
 
         const data = await response.json();

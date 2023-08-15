@@ -1,16 +1,22 @@
 import {useEffect, useRef} from "react";
+import {IObserverProps} from "@/types/useObserver.type";
 
-export const useObserver = (ref, isLoading, callback) => {
-    const observer = useRef()
+export const useObserver = ({ ref, isLoading, callback }: IObserverProps) => {
+    const observer = useRef<IntersectionObserver | null>(null);
+
     useEffect(() => {
-        if (isLoading) return
-        if (observer.current) observer.current.disconnect()
-        const cb = function (entries, observer) {
+        if (isLoading) return;
+        if (observer.current) observer.current.disconnect();
+        const cb: IntersectionObserverCallback = (entries, observer) => {
             if (entries[0].isIntersecting) {
-                callback()
+                callback();
             }
         };
         observer.current = new IntersectionObserver(cb);
-        observer.current.observe(ref.current)
+
+        if (ref.current) {
+            observer.current.observe(ref.current);
+        }
+
     }, [isLoading]);
-}
+};
