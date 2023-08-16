@@ -14,8 +14,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Header/>
+        <div className={styles.backgroundEarth}/>
         <main>
-            <div className={styles.backgroundEarth}/>
             <div className={styles.mainContainer}>
                 {children}
             </div>

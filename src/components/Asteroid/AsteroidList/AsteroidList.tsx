@@ -101,15 +101,18 @@ const AsteroidList: FC = () => {
                         )
                     )}
                 </ul>
+
+                    {
+                        isLoading && <div className={cart.length ?
+                            `${styles.loader} ${styles.loaderWithCart}`
+                            :
+                            `${styles.loader}`}
+                        />
+                    }
+
             </div>
 
 
-
-            <div className={cart.length ?
-                `${styles.loader} ${styles.loaderWithCart}`
-                :
-                `${styles.loader}`}
-            />
 
             {
                 cart.length ? <div className={styles.cart}>
@@ -126,11 +129,7 @@ const AsteroidList: FC = () => {
                     </div> :
                     null
             }
-
         </>
-
-
-
         );
     }
 
