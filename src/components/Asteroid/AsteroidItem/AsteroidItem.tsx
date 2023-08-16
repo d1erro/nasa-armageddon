@@ -12,7 +12,6 @@ import Link from "next/link";
 
 const AsteroidItem: FC<IAsteroidItemProps> =
     ({
-         key,
          data,
          cartUpdateHandler,
          distanceUnit,
@@ -28,7 +27,7 @@ const AsteroidItem: FC<IAsteroidItemProps> =
     const missDistanceKm = stringToRoundedNum(data.close_approach_data[0].miss_distance.kilometers)
 
     return (
-        <div key={key} className={styles.asteroidItem}>
+        <div className={styles.asteroidItem}>
 
             <h4 className={styles.date}>{formatDate(data.close_approach_data[0].close_approach_date)}</h4>
 

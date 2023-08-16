@@ -2,6 +2,10 @@
     max-width: 400px;
 }
 
+.asteroidListItem {
+    list-style-type: none;
+}
+
 .kmOrLunarOrbits {
     display: flex;
     align-items: center;

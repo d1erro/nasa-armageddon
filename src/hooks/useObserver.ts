@@ -7,16 +7,19 @@ export const useObserver = ({ ref, isLoading, callback }: IObserverProps) => {
     useEffect(() => {
         if (isLoading) return;
         if (observer.current) observer.current.disconnect();
-        const cb: IntersectionObserverCallback = (entries, observer) => {
+        const cb: IntersectionObserverCallback = (entries) => {
             if (entries[0].isIntersecting) {
                 callback();
             }
         };
-        observer.current = new IntersectionObserver(cb);
+        const options = {
+            rootMargin: "30%"
+        }
+        observer.current = new IntersectionObserver(cb, options);
 
         if (ref.current) {
             observer.current.observe(ref.current);
         }
-
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isLoading]);
 };

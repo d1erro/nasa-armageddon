@@ -17,10 +17,10 @@ const AsteroidList: FC = () => {
     const [fetchDate, setFetchDate] = useState<string>(getCurrentDay())
     const [cart, setCart] = useState<ICartItem[]>([])
     const [distanceUnit, setDistanceUnit] = useState<"lunar" | "km">("lunar")
-    const loader = useRef<HTMLDivElement | null>(null);
+    const lastAsteroidElement = useRef<HTMLLIElement | null>(null);
 
     useObserver({
-        ref: loader,
+        ref: lastAsteroidElement,
         isLoading,
         callback: () => setFetchDate(getNextDay(fetchDate))
     })
@@ -84,15 +84,20 @@ const AsteroidList: FC = () => {
 
             <div className={styles.asteroidList}>
                 <ul>
-                    {asteroids.map((asteroid) => (
+                    {asteroids.map((asteroid, index) => (
+                        <li
+                            key={index}
+                            ref={index === asteroids.length - 1 ? lastAsteroidElement : null}
+                            className={styles.asteroidListItem}
+                        >
                             <AsteroidItem
-                                key={asteroid.id}
                                 name={asteroid.name}
                                 data={asteroid}
                                 cartUpdateHandler={cartUpdateHandler}
                                 distanceUnit={distanceUnit}
                                 isInCard={cart.some(cartAsteroid => cartAsteroid.id === asteroid.id)}
                             />
+                        </li>
                         )
                     )}
                 </ul>
@@ -100,7 +105,7 @@ const AsteroidList: FC = () => {
 
 
 
-            <div ref={loader} className={cart.length ?
+            <div className={cart.length ?
                 `${styles.loader} ${styles.loaderWithCart}`
                 :
                 `${styles.loader}`}

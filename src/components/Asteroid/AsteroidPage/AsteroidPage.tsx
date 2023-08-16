@@ -62,6 +62,9 @@ const AsteroidPage: FC<IAsteroidPageProps> = async ({id}) => {
                                         alt="mars"
                                     />
                                 }
+                                {approach.orbiting_body !== 'Earth' && approach.orbiting_body !== 'Mars' &&
+                                    <div>{approach.orbiting_body}</div>
+                                }
                             </div>
                         </div>
                     ))}
