@@ -3,14 +3,13 @@ import AsteroidList from "@/components/Asteroid/AsteroidList/AsteroidList";
 
 const Home = () => {
     return (
-        <div className={styles.homePage}>
-            <h2>Ближайшие</h2>
-            <h2>подлёты</h2>
-            <h2>астероидов</h2>
+            <div className={styles.homePage}>
 
-            <AsteroidList/>
+                <h2>Ближайшие подлёты астероидов</h2>
 
-        </div>
+                <AsteroidList/>
+
+            </div>
     );
 };
 

@@ -1,5 +1,13 @@
+.cart {
+    max-width: 400px;
+}
+
 .copyright {
     position: fixed;
     bottom: 15px;
     left: 15px;
+}
+
+.successMessage {
+    font-size: 24px;
 }

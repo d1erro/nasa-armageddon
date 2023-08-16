@@ -9,10 +9,10 @@ import {useObserver} from "@/hooks/useObserver";
 import {getNextDay} from "@/utils/get-next-day";
 import Link from "next/link";
 import {ICartUpdateHandler} from "@/types/cart-update-handler";
-import {getNasaData} from "@/api/get-nasa-data";
+import {getAsteroidList} from "@/api/get-asteroid-list";
 
 const AsteroidList: FC = () => {
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState<boolean>(true);
     const [asteroids, setAsteroids] = useState<NearEarthObject[]>([]);
     const [fetchDate, setFetchDate] = useState<string>(getCurrentDay())
     const [cart, setCart] = useState<ICartItem[]>([])
@@ -29,7 +29,7 @@ const AsteroidList: FC = () => {
         (async () => {
             setIsLoading(true)
             try {
-                const receivedAsteroids = await getNasaData(fetchDate)
+                const receivedAsteroids = await getAsteroidList(fetchDate)
                 setAsteroids((asteroids) => [...asteroids, ...receivedAsteroids]);
             } catch (err) {
                 console.log(err)
@@ -63,64 +63,69 @@ const AsteroidList: FC = () => {
     }
 
     return (
-                <>
-                    <div className={styles.kmOrLunarOrbits}>
-                        <button
-                            className={distanceUnit === 'km' ? styles.selectedUnitButton : styles.unitButton}
-                            onClick={() => setDistanceUnit('km')}
-                        >
-                            в километрах
-                        </button>
+        <>
+            <div className={styles.kmOrLunarOrbits}>
+                <button
+                    className={distanceUnit === 'km' ? styles.selectedUnitButton : styles.unitButton}
+                    onClick={() => setDistanceUnit('km')}
+                >
+                    в километрах
+                </button>
 
-                        <p className={styles.dash}>|</p>
+                <p className={styles.dash}>|</p>
 
-                        <button
-                            className={distanceUnit === 'lunar' ? styles.selectedUnitButton : styles.unitButton}
-                            onClick={() => setDistanceUnit('lunar')}
-                        >
-                            в лунных орбитах
-                        </button>
-                    </div>
+                <button
+                    className={distanceUnit === 'lunar' ? styles.selectedUnitButton : styles.unitButton}
+                    onClick={() => setDistanceUnit('lunar')}
+                >
+                    в лунных орбитах
+                </button>
+            </div>
 
-                            <div className={styles.asteroidList}>
-                                <ul>
-                                    {asteroids.map((asteroid) => (
-                                            <AsteroidItem
-                                                key={asteroid.id}
-                                                name={asteroid.name}
-                                                data={asteroid}
-                                                cartUpdateHandler={cartUpdateHandler}
-                                                distanceUnit={distanceUnit}
-                                                isInCard={cart.some(cartAsteroid => cartAsteroid.id === asteroid.id)}
-                                            />
-                                        )
-                                    )}
-                                </ul>
+            <div className={styles.asteroidList}>
+                <ul>
+                    {asteroids.map((asteroid) => (
+                            <AsteroidItem
+                                key={asteroid.id}
+                                name={asteroid.name}
+                                data={asteroid}
+                                cartUpdateHandler={cartUpdateHandler}
+                                distanceUnit={distanceUnit}
+                                isInCard={cart.some(cartAsteroid => cartAsteroid.id === asteroid.id)}
+                            />
+                        )
+                    )}
+                </ul>
+            </div>
+
+
+
+            <div ref={loader} className={cart.length ?
+                `${styles.loader} ${styles.loaderWithCart}`
+                :
+                `${styles.loader}`}
+            />
+
+            {
+                cart.length ? <div className={styles.cart}>
+
+                        <div className={styles.cartItems}>
+                            <div>
+                                <p className={styles.cartWordCart}>Корзина</p>
+                                <p>{cart.length} астероида</p>
                             </div>
 
-                    {
-                        cart.length ? <div className={styles.cart}>
+                            <Link href="/cart" className={styles.cartButton}>Отправить</Link>
+                        </div>
 
-                                <div className={styles.cartItems}>
-                                    <div>
-                                        <p className={styles.cartWordCart}>Корзина</p>
-                                        <p>{cart.length} астероида</p>
-                                    </div>
+                    </div> :
+                    null
+            }
 
-                                    <Link href="/cart" className={styles.cartButton}>Отправить</Link>
-                                </div>
+        </>
 
-                            </div> :
-                            null
-                    }
 
-                    <div ref={loader} className={cart.length ?
-                        `${styles.loader} ${styles.loaderWithCart}`
-                        :
-                        `${styles.loader}`}
-                    />
 
-                </>
         );
     }
 

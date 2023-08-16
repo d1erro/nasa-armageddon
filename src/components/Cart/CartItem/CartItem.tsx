@@ -6,7 +6,8 @@ import ArrowDivider from "@/ui/ArrowDevider";
 import {stringToRoundedNum} from "@/utils/string-to-rounded-num";
 import asteroidImg from "../../../../public/asteroid.png";
 import Image from "next/image";
-import {formateAsteroidName} from "@/utils/formate-asteroid-name";
+import {formatAsteroidName} from "@/utils/format-asteroid-name";
+import {formatDate} from "@/utils/format-date";
 
 const CartItem: FC<ICartItem> = ({
                                      id,
@@ -19,7 +20,7 @@ const CartItem: FC<ICartItem> = ({
     return (
         <div className={styles.asteroidItem}>
 
-            <h4 className={styles.date}>{closeApproachDate}</h4>
+            <h4 className={styles.date}>{formatDate(closeApproachDate)}</h4>
 
             <div className={styles.asteroidInfo}>
 
@@ -31,13 +32,13 @@ const CartItem: FC<ICartItem> = ({
                 </div>
 
                 <Image
-                    className={styles.image}
+                    className={averageDiameter > 100 ? styles.imageMedium : styles.imageSmall}
                     src={asteroidImg}
                     alt="asteroidImg"
                 />
 
                 <div className={styles.nameAndRadius}>
-                    <p className={styles.name}>{formateAsteroidName(name)}</p>
+                    <p className={styles.name}>{formatAsteroidName(name)}</p>
                     <p className={styles.radius}>Ø {averageDiameter} м</p>
                 </div>
 

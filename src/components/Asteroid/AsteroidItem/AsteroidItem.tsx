@@ -1,13 +1,14 @@
 import {FC} from 'react';
 import {IAsteroidItemProps} from "@/types/AsteroidItem.type";
 import styles from '../AsteroidItem/AsteroidItem.module.css'
-import {formateDate} from "@/utils/formate-date";
+import {formatDate} from "@/utils/format-date";
 import ArrowDivider from "../../../ui/ArrowDevider";
 import asteroidImg from "../../../../public/asteroid.png"
 import Image from 'next/image'
-import {formateAsteroidName} from "@/utils/formate-asteroid-name";
+import {formatAsteroidName} from "@/utils/format-asteroid-name";
 import calculateAverage from "@/utils/average-int-number";
 import {stringToRoundedNum} from "@/utils/string-to-rounded-num";
+import Link from "next/link";
 
 const AsteroidItem: FC<IAsteroidItemProps> =
     ({
@@ -29,7 +30,7 @@ const AsteroidItem: FC<IAsteroidItemProps> =
     return (
         <div key={key} className={styles.asteroidItem}>
 
-            <h4 className={styles.date}>{formateDate(data.close_approach_data[0].close_approach_date)}</h4>
+            <h4 className={styles.date}>{formatDate(data.close_approach_data[0].close_approach_date)}</h4>
 
             <div className={styles.asteroidInfo}>
 
@@ -51,14 +52,16 @@ const AsteroidItem: FC<IAsteroidItemProps> =
                 </div>
 
                 <Image
-                    className={styles.image}
+                    className={averageDiameter > 100 ? styles.imageMedium : styles.imageSmall}
                     src={asteroidImg}
                     alt="asteroidImg"
                 />
 
 
                 <div className={styles.nameAndRadius}>
-                    <p className={styles.name}>{formateAsteroidName(data.name)}</p>
+                    <Link href={`/asteroid/${data.id}`}>
+                        <p className={styles.name}>{formatAsteroidName(data.name)}</p>
+                    </Link>
                     <p className={styles.radius}>Ø {averageDiameter} м</p>
                 </div>
 

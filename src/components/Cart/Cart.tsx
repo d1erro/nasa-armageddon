@@ -19,10 +19,10 @@ const Cart = () => {
     }), [];
 
     return (
-        <div>
+        <div className={styles.cart}>
             {cart.length > 0 ? (
                 <>
-                    <h4>Заказ отправлен!</h4>
+                    <h4 className={styles.successMessage}>Заказ отправлен!</h4>
                     {cart.map((asteroid: ICartItem) => (
                         <CartItem
                             key={asteroid.id}

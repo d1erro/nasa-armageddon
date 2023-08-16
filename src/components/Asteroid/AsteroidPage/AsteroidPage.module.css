@@ -1,0 +1,106 @@
+.asteroidPage {
+    margin-bottom: 30px;
+}
+
+.asteroidInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    font-weight: bold;
+    width: 100%;
+}
+
+.asteroidImage {
+    width: 200px;
+    height: 100%;
+}
+
+.asteroidDescription {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.closeApproach {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.closeApproachTitle {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.closeApproachTable {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.closeApproachTableHeader {
+    font-weight: bold;
+    text-align: center;
+}
+
+.closeApproachTableRow {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 8px 0;
+
+    align-items: center;
+    justify-items: center;
+    gap: 10px;
+}
+
+.orbitPlanetImage {
+    width: 50px;
+    height: 100%;
+}
+
+@media (max-width: 376px) {
+    .asteroidImage {
+        width: 70px;
+    }
+    .asteroidDescription {
+        font-size: 14px;
+    }
+    .closeApproachTableRow {
+        font-size: 10px;
+    }
+    .orbitPlanetImage {
+        width: 30px;
+    }
+}
+
+@media (min-width: 376px) and (max-width: 768px) {
+    .asteroidDescription {
+        font-size: 16px;
+    }
+    .asteroidImage {
+        width: 100px;
+    }
+    .closeApproachTableRow {
+        font-size: 11px;
+    }
+    .orbitPlanetImage {
+        width: 35px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .asteroidImage {
+        width: 150px;
+    }
+    .closeApproachTableRow {
+        font-size: 14px;
+    }
+    .orbitPlanetImage {
+        width: 40px;
+    }
+}

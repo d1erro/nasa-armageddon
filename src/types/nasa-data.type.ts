@@ -61,11 +61,7 @@ export interface NearEarthObject {
 }
 
 export interface NeoFeedData {
-    links: {
-        self: string;
-        next: string;
-        previous: string;
-    };
+    links: Link
     element_count: number;
     near_earth_objects: {
         [date: string]: NearEarthObject[];

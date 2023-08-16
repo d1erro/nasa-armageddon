@@ -9,7 +9,7 @@
 .asteroidInfo {
     display: grid;
     grid-template-columns: 3fr 1fr 2fr;
-    justify-items: center;
+    justify-items: start;
     align-items: center;
     margin-top: 8px;
     margin-bottom: 8px;
@@ -28,7 +28,7 @@
     margin-right: 15px;
     background: rgba(248, 102, 0, 0.15);
     border-radius: 16px;
-    padding: 5px;
+    padding: 2px 11px;
     border: none;
 }
 
@@ -44,7 +44,7 @@
     margin-right: 15px;
     background: rgba(248, 102, 0, 0.15);
     border-radius: 16px;
-    padding: 5px;
+    padding: 2px 11px;
     border: none;
 }
 
@@ -75,10 +75,16 @@
     font-size: 14px;
 }
 
-.image {
+.imageSmall {
     margin-inline: 5px;
     width: 22px;
     height: 24px;
+}
+
+.imageMedium {
+    margin-inline: 5px;
+    width: 36px;
+    height: 40px;
 }
 
 .nameAndRadius {
@@ -87,6 +93,7 @@
 }
 
 .name {
+    color: white;
     font-size: 14px;
     font-weight: bold;
     text-decoration: underline;

@@ -1,4 +1,4 @@
-export const formateDate = (date: string) => {
+export const formatDate = (date: string) => {
         const months = [
             "янв", "фев", "мар", "апр", "май", "июн",
             "июл", "авг", "сен", "окт", "ноя", "дек"
