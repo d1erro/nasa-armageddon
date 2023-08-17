@@ -8,10 +8,18 @@ import averageIntNumber from "@/utils/average-int-number";
 import {stringToRoundedNum} from "@/utils/string-to-rounded-num";
 import {formatFullDate} from "@/utils/format-full-date";
 import marsImage from "@/../public/mars.jpeg";
-import earthImage from "@/../public/earth.jpeg";
+import earthImage from "@/../public/earth_small.jpg";
+import venusImage from "@/../public/venus.jpg";
 import {IAsteroidPageProps} from "@/types/AsteroidPageProps.type";
+import {IPlanetImages} from "@/types/AsteroidPage.type";
 
 const AsteroidPage: FC<IAsteroidPageProps> = async ({id}) => {
+
+    const planetImages: IPlanetImages = {
+        Earth: earthImage,
+        Mars: marsImage,
+        Venus: venusImage,
+    };
 
     const asteroid: NearEarthObject = await getAsteroidInfo(id)
     const averageDiameter = averageIntNumber(
@@ -48,24 +56,15 @@ const AsteroidPage: FC<IAsteroidPageProps> = async ({id}) => {
                             <div>{stringToRoundedNum(approach.relative_velocity.kilometers_per_hour)}</div>
                             <div>{formatFullDate(approach.close_approach_date_full)}</div>
                             <div>{stringToRoundedNum(approach.miss_distance.kilometers)}</div>
-                            <div>{approach.orbiting_body === 'Earth' &&
-                                    <Image
-                                        className={styles.orbitPlanetImage}
-                                        src={earthImage}
-                                        alt="earth"
-                                    />
-                                 }
-                                {approach.orbiting_body === 'Mars' &&
-                                    <Image
-                                        className={styles.orbitPlanetImage}
-                                        src={marsImage}
-                                        alt="mars"
-                                    />
-                                }
-                                {approach.orbiting_body !== 'Earth' && approach.orbiting_body !== 'Mars' &&
-                                    <div>{approach.orbiting_body}</div>
-                                }
-                            </div>
+                            {planetImages.hasOwnProperty(approach.orbiting_body) ? (
+                                <Image
+                                    className={styles.orbitPlanetImage}
+                                    src={planetImages[approach.orbiting_body]}
+                                    alt={approach.orbiting_body}
+                                />
+                            ) : (
+                                <div>{approach.orbiting_body}</div>
+                            )}
                         </div>
                     ))}
                 </div>
