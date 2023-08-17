@@ -8,6 +8,7 @@ import asteroidImg from "../../../../public/asteroid.png";
 import Image from "next/image";
 import {formatAsteroidName} from "@/utils/format-asteroid-name";
 import {formatDate} from "@/utils/format-date";
+import {formatDistanceText} from "@/utils/format-distance-text";
 
 const CartItem: FC<ICartItem> = ({
                                      id,
@@ -26,7 +27,7 @@ const CartItem: FC<ICartItem> = ({
 
                 <div className={styles.distance}>
                     <div>
-                        <p>{stringToRoundedNum(missDistance)} лунных орбиты</p>
+                        <p>{stringToRoundedNum(missDistance)} {formatDistanceText(missDistance)}</p>
                         <ArrowDivider/>
                     </div>
                 </div>

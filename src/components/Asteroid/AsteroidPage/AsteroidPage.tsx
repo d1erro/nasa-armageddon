@@ -28,7 +28,7 @@ const AsteroidPage: FC<IAsteroidPageProps> = async ({id}) => {
                 />
                 <div className={styles.asteroidDescription}>
                     <p>{asteroid.name}</p>
-                    <p>Ø {averageDiameter} метров</p>
+                    <p>Ø {averageDiameter} м</p>
                     <p>{asteroid.is_potentially_hazardous_asteroid && 'Опасный'}</p>
                 </div>
             </div>

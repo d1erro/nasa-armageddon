@@ -1,4 +1,7 @@
-export const formatDistanceText = (count: number) => {
+export const formatDistanceText = (count: number | string) => {
+    if (typeof count === "string")
+    count = Math.round(Number(count));
+
     if (count === 0) {
         return 'лунных орбит';
     } else if (count === 1) {

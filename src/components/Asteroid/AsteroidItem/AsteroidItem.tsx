@@ -38,7 +38,7 @@ const AsteroidItem: FC<IAsteroidItemProps> =
                     <div>
                         {
                             distanceUnit === 'km' ? (
-                                <p>{missDistanceKm} km</p>
+                                <p>{missDistanceKm} км</p>
                             ) :
                                 (
                                     <p>{missDistanceLunar} {formatDistanceText(missDistanceLunar)}</p>
