@@ -2,8 +2,13 @@ import './globals.css'
 import { Inter } from 'next/font/google'
 import Header from "@/components/Header/Header";
 import styles from '../styles/Main.module.css'
+import {Metadata} from "next";
 
 const inter = Inter({ subsets: ['latin'] })
+
+export const metadata: Metadata = {
+    title: "Asteroid List | Armageddon 2023"
+}
 
 export default function RootLayout({
   children,

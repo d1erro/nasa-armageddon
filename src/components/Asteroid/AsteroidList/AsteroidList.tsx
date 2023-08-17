@@ -11,6 +11,7 @@ import Link from "next/link";
 import {ICartUpdateHandler} from "@/types/cart-update-handler";
 import {getAsteroidList} from "@/api/get-asteroid-list";
 import {formatCartText} from "@/utils/format-cart-text";
+import Loader from "@/ui/Loader/Loader";
 
 const AsteroidList: FC = () => {
     const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -105,7 +106,7 @@ const AsteroidList: FC = () => {
                     </ul>
 
                     {
-                        isLoading && <div className={cart.length ?
+                        isLoading && <Loader className={cart.length ?
                             `${styles.loader} ${styles.loaderWithCart}`
                             :
                             `${styles.loader}`}
