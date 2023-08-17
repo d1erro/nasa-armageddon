@@ -9,6 +9,7 @@ import {formatAsteroidName} from "@/utils/format-asteroid-name";
 import calculateAverage from "@/utils/average-int-number";
 import {stringToRoundedNum} from "@/utils/string-to-rounded-num";
 import Link from "next/link";
+import {formatDistanceText} from "@/utils/format-distance-text";
 
 const AsteroidItem: FC<IAsteroidItemProps> =
     ({
@@ -40,7 +41,7 @@ const AsteroidItem: FC<IAsteroidItemProps> =
                                 <p>{missDistanceKm} km</p>
                             ) :
                                 (
-                                    <p>{missDistanceLunar} лунные орбиты</p>
+                                    <p>{missDistanceLunar} {formatDistanceText(missDistanceLunar)}</p>
                                 )
 
                         }

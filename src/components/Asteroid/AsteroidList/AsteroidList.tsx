@@ -10,6 +10,7 @@ import {getNextDay} from "@/utils/get-next-day";
 import Link from "next/link";
 import {ICartUpdateHandler} from "@/types/cart-update-handler";
 import {getAsteroidList} from "@/api/get-asteroid-list";
+import {formatCartText} from "@/utils/format-cart-text";
 
 const AsteroidList: FC = () => {
     const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -121,7 +122,7 @@ const AsteroidList: FC = () => {
                             <div className={styles.cartItems}>
                                 <div>
                                     <p className={styles.cartWordCart}>Корзина</p>
-                                    <p>{cart.length} астероида</p>
+                                    <p>{cart.length} {formatCartText(cart.length)}</p>
                                 </div>
 
                                 <Link href="/cart" className={styles.cartButton}>Отправить</Link>
