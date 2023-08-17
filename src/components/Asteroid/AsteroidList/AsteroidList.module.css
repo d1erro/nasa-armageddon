@@ -1,3 +1,8 @@
+.asteroidContainer {
+    display: flex;
+    flex-direction: column;
+}
+
 .asteroidList {
     max-width: 400px;
 }
@@ -99,12 +104,16 @@
     }
 }
 
-@media screen and (min-width: 800px) {
-    .cart {
+@media screen and (min-width: 850px) {
+    .cartDiv {
         position: fixed;
+    }
+
+    .cart {
+        position: absolute;
         width: 150px;
-        bottom: 70%;
-        left: 75%;
+        bottom: -130px;
+        left: 500px;
         background: #232526;
         border-radius: 24px;
         z-index: 0;
@@ -118,25 +127,6 @@
 
     .cartButton {
         height: 48px;
-    }
-}
-
-@media screen and (min-width: 1050px) {
-    .cart {
-        left: 60%;
-        transition: left 0.3s ease-in-out;
-    }
-}
-
-@media screen and (max-height: 600px) {
-    .cart {
-        bottom: 200px;
-    }
-}
-
-@media screen and (max-width: 800px) and (orientation: landscape) {
-    .cart {
-        bottom: 0;
     }
 }
 

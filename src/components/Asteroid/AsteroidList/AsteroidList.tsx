@@ -63,44 +63,45 @@ const AsteroidList: FC = () => {
     }
 
     return (
-        <>
-            <div className={styles.kmOrLunarOrbits}>
-                <button
-                    className={distanceUnit === 'km' ? styles.selectedUnitButton : styles.unitButton}
-                    onClick={() => setDistanceUnit('km')}
-                >
-                    в километрах
-                </button>
+        <div className={styles.asteroidContainer}>
+            <div>
+                <div className={styles.kmOrLunarOrbits}>
+                    <button
+                        className={distanceUnit === 'km' ? styles.selectedUnitButton : styles.unitButton}
+                        onClick={() => setDistanceUnit('km')}
+                    >
+                        в километрах
+                    </button>
 
-                <p className={styles.dash}>|</p>
+                    <p className={styles.dash}>|</p>
 
-                <button
-                    className={distanceUnit === 'lunar' ? styles.selectedUnitButton : styles.unitButton}
-                    onClick={() => setDistanceUnit('lunar')}
-                >
-                    в лунных орбитах
-                </button>
-            </div>
+                    <button
+                        className={distanceUnit === 'lunar' ? styles.selectedUnitButton : styles.unitButton}
+                        onClick={() => setDistanceUnit('lunar')}
+                    >
+                        в лунных орбитах
+                    </button>
+                </div>
 
-            <div className={styles.asteroidList}>
-                <ul>
-                    {asteroids.map((asteroid, index) => (
-                        <li
-                            key={index}
-                            ref={index === asteroids.length - 1 ? lastAsteroidElement : null}
-                            className={styles.asteroidListItem}
-                        >
-                            <AsteroidItem
-                                name={asteroid.name}
-                                data={asteroid}
-                                cartUpdateHandler={cartUpdateHandler}
-                                distanceUnit={distanceUnit}
-                                isInCard={cart.some(cartAsteroid => cartAsteroid.id === asteroid.id)}
-                            />
-                        </li>
-                        )
-                    )}
-                </ul>
+                <div className={styles.asteroidList}>
+                    <ul>
+                        {asteroids.map((asteroid, index) => (
+                                <li
+                                    key={index}
+                                    ref={index === asteroids.length - 1 ? lastAsteroidElement : null}
+                                    className={styles.asteroidListItem}
+                                >
+                                    <AsteroidItem
+                                        name={asteroid.name}
+                                        data={asteroid}
+                                        cartUpdateHandler={cartUpdateHandler}
+                                        distanceUnit={distanceUnit}
+                                        isInCard={cart.some(cartAsteroid => cartAsteroid.id === asteroid.id)}
+                                    />
+                                </li>
+                            )
+                        )}
+                    </ul>
 
                     {
                         isLoading && <div className={cart.length ?
@@ -110,26 +111,28 @@ const AsteroidList: FC = () => {
                         />
                     }
 
+                </div>
             </div>
 
+            <div className={styles.cartDiv}>
+                {
+                    cart.length ? <div className={styles.cart}>
 
+                            <div className={styles.cartItems}>
+                                <div>
+                                    <p className={styles.cartWordCart}>Корзина</p>
+                                    <p>{cart.length} астероида</p>
+                                </div>
 
-            {
-                cart.length ? <div className={styles.cart}>
-
-                        <div className={styles.cartItems}>
-                            <div>
-                                <p className={styles.cartWordCart}>Корзина</p>
-                                <p>{cart.length} астероида</p>
+                                <Link href="/cart" className={styles.cartButton}>Отправить</Link>
                             </div>
 
-                            <Link href="/cart" className={styles.cartButton}>Отправить</Link>
-                        </div>
+                        </div> :
+                        null
+                }
+            </div>
 
-                    </div> :
-                    null
-            }
-        </>
+        </div>
         );
     }
 
