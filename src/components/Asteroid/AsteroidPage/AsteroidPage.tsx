@@ -2,13 +2,13 @@ import {getAsteroidInfo} from "@/api/get-asteroid-info";
 import {CloseApproachData, NearEarthObject} from "@/types/nasa-data.type";
 import {FC} from "react";
 import styles from './AsteroidPage.module.css'
-import asteroidImg from "../../../../public/asteroid.png";
+import asteroidImage from "@/../public/asteroid.png";
 import Image from "next/image";
 import averageIntNumber from "@/utils/average-int-number";
 import {stringToRoundedNum} from "@/utils/string-to-rounded-num";
 import {formatFullDate} from "@/utils/format-full-date";
-import marsImage from "./../../../../public/mars.jpeg";
-import earthImage from "./../../../../public/earth.jpeg";
+import marsImage from "@/../public/mars.jpeg";
+import earthImage from "@/../public/earth.jpeg";
 import {IAsteroidPageProps} from "@/types/AsteroidPageProps.type";
 
 const AsteroidPage: FC<IAsteroidPageProps> = async ({id}) => {
@@ -23,7 +23,7 @@ const AsteroidPage: FC<IAsteroidPageProps> = async ({id}) => {
             <div className={styles.asteroidInfo}>
                 <Image
                     className={styles.asteroidImage}
-                    src={asteroidImg}
+                    src={asteroidImage}
                     alt="asteroidImg"
                 />
                 <div className={styles.asteroidDescription}>
