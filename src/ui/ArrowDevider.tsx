@@ -14,7 +14,7 @@ const ArrowDivider = (props: any) => {
                 fillOpacity="0.5"
             />
         </svg>
-    );
+    )
 }
 
-export default ArrowDivider;
+export default ArrowDivider

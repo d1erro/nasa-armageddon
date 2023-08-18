@@ -12,11 +12,13 @@ export const formatFullDate = (inputDate: string): string => {
         Oct: 'окт',
         Nov: 'ноя',
         Dec: 'дек',
-    };
+    }
 
-    const [datePart, timePart] = inputDate.split(' ');
-    const [year, month, day] = datePart.split('-');
-    const formattedDate = `${parseInt(day)} ${months[month]} ${parseInt(year)} года в ${timePart}`;
+    const [datePart, timePart] = inputDate.split(' ')
+    const [year, month, day] = datePart.split('-')
+    const formattedDate = `${parseInt(day)} ${months[month]} ${parseInt(
+        year,
+    )} года в ${timePart}`
 
-    return formattedDate;
-};
+    return formattedDate
+}

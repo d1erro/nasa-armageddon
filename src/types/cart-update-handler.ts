@@ -5,6 +5,6 @@ export interface ICartUpdateHandler {
         closeApproachDate: string,
         diameter: number,
         isHazard: boolean,
-        missDistance: string
-        ): void;
+        missDistance: string,
+    ): void
 }

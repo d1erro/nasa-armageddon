@@ -6,9 +6,9 @@ Online Service for Monitoring and Mitigating Hazardous Asteroids Using NASA API 
 
 ## Features
 
-- List of Closest Asteroid Flybys Page
-- Shopping Cart
-- Asteroid Page with a List of Asteroid Approaches
+-   List of Closest Asteroid Flybys Page
+-   Shopping Cart
+-   Asteroid Page with a List of Asteroid Approaches
 
 ## Getting Started
 
@@ -21,6 +21,7 @@ Create a ".env.local" file in the project's root folder. Provide your API key
 ```
 NEXT_PUBLIC_NASA_API=ENTER_YOUR_API_KEY
 ```
+
 To start the application, run the "dev" script in the package.json file or enter the command in the terminal.
 
 ```
@@ -31,5 +32,6 @@ npm run dev
 Follow the link in the terminal: http://localhost:3000/
 
 ## Built with
-- [Next](https://nextjs.org/)
-- [TypeScript](https://www.typescriptlang.org/)
+
+-   [Next](https://nextjs.org/)
+-   [TypeScript](https://www.typescriptlang.org/)

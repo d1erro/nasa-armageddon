@@ -1,24 +1,29 @@
 .mainContainer {
     margin-top: 20px;
     margin-right: 3%;
-    margin-left: 20vh;
+    margin-left: 10vh;
 }
 
-.backgroundEarth {
+.earthImageContainer {
     position: fixed;
-    bottom: -50px;
-    left: -550px;
-    width: 650px;
-    height: 100%;
     z-index: -1;
 }
 
-@media (min-width: 0px) and (max-width: 600px) {
+.backgroundEarth {
+    position: absolute;
+    top: -50px;
+    left: -500px;
+    width: 550px;
+    height: auto;
+    z-index: -1;
+}
+
+@media (min-width: 700px) {
     .backgroundEarth {
-        left: -600px;
+        left: -450px;
     }
     .mainContainer {
-        margin-left: 75px;
+        margin-left: 125px;
     }
 }
 
@@ -26,6 +31,7 @@
     .backgroundEarth {
         width: 700px;
         left: -500px;
+        top: -30px;
     }
     .mainContainer {
         margin-left: 40vh;

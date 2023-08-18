@@ -1,3 +1,3 @@
 export interface IAsteroidPageProps {
-    id: number;
+    id: number
 }

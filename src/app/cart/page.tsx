@@ -1,14 +1,12 @@
-import Cart from "@/components/Cart/Cart";
-import {Metadata} from "next";
+import Cart from '@/components/Cart/Cart'
+import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-    title: "Cart | Armageddon 2023"
+    title: 'Cart | Armageddon 2023',
 }
 
 const Page = () => {
-    return (
-        <Cart/>
-    )
-};
+    return <Cart />
+}
 
-export default Page;
+export default Page
