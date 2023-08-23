@@ -2,7 +2,7 @@
 
 Online Service for Monitoring and Mitigating Hazardous Asteroids Using NASA API Data.
 
-[Live Demo](https://kvartirka-test-v3.vercel.app/) :point_left:
+[Live Demo](https://kvartirka-test-d1erro.vercel.app/) :point_left:
 
 ## Features
 
