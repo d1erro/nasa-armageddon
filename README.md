@@ -25,7 +25,7 @@ NEXT_PUBLIC_NASA_API=ENTER_YOUR_API_KEY
 To start the application, run the "dev" script in the package.json file or enter the command in the terminal.
 
 ```
-cd kvartirka-test
+cd nasa-armageddon
 npm run dev
 ```
 
